@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>PubRTC + Mobile</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
-    <script src="js/modernizr.custom.js"></script>
+	<title>PubRTC + Mobile</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+	<script src="js/modernizr.custom.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" />
 
 
@@ -18,64 +18,66 @@
 <!-- My Phone Number & Dial Areas -->
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
-    
+	
 <div id="vid-box"></div>
-    
-    
+	
+	
  <div id="stream-info" hidden="true">
-        <button id="end" onclick="end()" hidden="true">Done</button>
-        <img src="img/person_dark.png"/>
-        <span id="here-now">0</span>       
+		<button id="end" onclick="end()" hidden="true">Done</button>
+		<img src="img/person_dark.png"/>
+		<span id="here-now">0</span>       
 </div> 
 
-    
-<form name="streamForm" id="stream" action="#" onsubmit="return errWrap(stream,this);">
-    <span class="input input--nao">
-        <input class="input__field input__field--nao" type="text" name="streamname" placeholder="Enter Stream Name" id="streamname"/>
-                <label class="input__label input__label--nao" for="streamname">
-                    <span class="input__label-content input__label-content--nao">        
-                    </span>
-                </label>
-            <svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
-            </svg>
-    </span>
+<input type="file" id="file-input" >
 
-      <button class="cbutton cbutton--effect-radomir" type="submit" value="Stream" name="stream_submit" style="margin-top: 40px; margin-left:-10px">
-            <i class="cbutton__icon fa fa-fw fa fa fa-video-camera"></i>
-        </button>
+	
+<form name="streamForm" id="stream" action="#" onsubmit="return errWrap(stream,this);">
+	<span class="input input--nao">
+		<input class="input__field input__field--nao" type="text" name="streamname" placeholder="Enter Stream Name" id="streamname"/>
+				<label class="input__label input__label--nao" for="streamname">
+					<span class="input__label-content input__label-content--nao">        
+					</span>
+				</label>
+			<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+				<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+			</svg>
+	</span>
+
+	  <button class="cbutton cbutton--effect-radomir" type="submit" value="Stream" name="stream_submit" style="margin-top: 40px; margin-left:-10px">
+			<i class="cbutton__icon fa fa-fw fa fa fa-video-camera"></i>
+		</button>
 </form>
-    
+	
 
 <form name="watchForm" id="watch" action="#" onsubmit="return errWrap(watch,this);">
-    <span class="input input--nao">
-        <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!"/>
-                <label class="input__label input__label--nao" for="number">
-                    <span class="input__label-content input__label-content--nao">        
-                    </span>
-                </label>
-            <svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
-            </svg>
-    </span>
+	<span class="input input--nao">
+		<input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!"/>
+				<label class="input__label input__label--nao" for="number">
+					<span class="input__label-content input__label-content--nao">        
+					</span>
+				</label>
+			<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+				<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+			</svg>
+	</span>
 
-       <button class="cbutton cbutton--effect-radomir" type="submit" value="Watch" style="margin-top: 40px; margin-left:-10px">
-                <i class="cbutton__icon fa fa-fw fa fa-eye"></i>
-        </button>
+	   <button class="cbutton cbutton--effect-radomir" type="submit" value="Watch" style="margin-top: 40px; margin-left:-10px">
+				<i class="cbutton__icon fa fa-fw fa fa-eye"></i>
+		</button>
 </form>  
-    
+	
 <div id="inStream" class="ptext">
 	Embed Style: <button onclick="genEmbed(400,600)">Tall</button><button onclick="genEmbed(600,400)">Wide</button><button onclick="genEmbed(500,500)">Square</button><br>
 	<div id="embed-code"></div>
 	<div id="embed-demo"></div>
 </div>
-    
+	
 <div id="logs" class="ptext" style="background-color:white"></div>
 
 <div class="ptext">
-    <p><b>To Use:</b></p>
-    <p>Type a channel to stream to and click Stream.</p>
-    <p>In a separate browser window, join the steam you created.</p>
+	<p><b>To Use:</b></p>
+	<p>Type a channel to stream to and click Stream.</p>
+	<p>In a separate browser window, join the steam you created.</p>
 </div>
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 <!-- WebRTC Peer Connections -->
@@ -96,32 +98,77 @@ var end_stream = document.getElementById('end');
 
 var streamName;
 
+var streamCtrl;
+
+document.getElementById('file-input').addEventListener('change', upload, false);
+
+function upload(event) {
+	console.log("upload called");
+	var context = new AudioContext();
+	var file = event.target.files[0];
+
+	if (file && streamCtrl) {
+		if (file.type.match('audio*')) {
+			var reader = new FileReader();
+			console.log(file);
+
+			reader.onload = (function(readEvent) {
+				context.decodeAudioData(readEvent.target.result, function(buffer) {
+					// create an audio source and connect it to the file buffer
+					var source = context.createBufferSource();
+					source.buffer = buffer;
+					source.start(0);
+
+					// connect the audio stream to the audio hardware
+					source.connect(context.destination);
+
+					// create a destination for the remote browser
+					var remote = context.createMediaStreamDestination();
+
+					// connect the remote destination to the source
+					source.connect(remote);
+
+					// add the stream to the peer connection
+					streamCtrl.addLocalStream(remote.stream);
+					streamCtrl.stream();
+
+					// create a SDP offer for the new stream
+					//pc.createOffer(setLocalAndSendMessage);
+				});
+			});
+			reader.readAsArrayBuffer(file);
+		}
+	}
+
+}
+
+
 function stream(form) {
 	streamName = form.streamname.value || Math.floor(Math.random()*100)+'';
 	var phone = window.phone = PHONE({
-	    number        : streamName, // listen on username line else random
-	    publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
-	    subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
-	    oneway        : true,
-	    broadcast     : true
+		number        : streamName, // listen on username line else random
+		publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
+		subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
+		oneway        : true,
+		broadcast     : true
 	});
 	//phone.debug(function(m){ console.log(m); })
-	var ctrl = window.ctrl = CONTROLLER(phone);
-	ctrl.ready(function(){
+	streamCtrl = window.ctrl = CONTROLLER(phone);
+	streamCtrl.ready(function(){
 		form.streamname.style.background="#55ff5b";
 		form.streamname.value = phone.number(); 
 //		form.stream_submit.hidden="true"; 
-		ctrl.addLocalStream(video_out);
-		ctrl.stream();
-        stream_info.hidden=false;
-        end_stream.hidden =false;
+		streamCtrl.addLocalStream(video_out);
+		streamCtrl.stream();
+		stream_info.hidden=false;
+		end_stream.hidden =false;
 		addLog("Streaming to " + streamName); 
 	});
-	ctrl.receive(function(session){
-	    session.connected(function(session){ addLog(session.number + " has joined."); });
-	    session.ended(function(session) { addLog(session.number + " has left."); console.log(session)});
+	streamCtrl.receive(function(session){
+		session.connected(function(session){ addLog(session.number + " has joined."); });
+		session.ended(function(session) { addLog(session.number + " has left."); console.log(session)});
 	});
-	ctrl.streamPresence(function(m){
+	streamCtrl.streamPresence(function(m){
 		here_now.innerHTML=m.occupancy;
 		addLog(m.occupancy + " currently watching.");
 	});
@@ -131,10 +178,10 @@ function stream(form) {
 function watch(form){
 	var num = form.number.value;
 	var phone = window.phone = PHONE({
-	    number        : "Viewer" + Math.floor(Math.random()*100), // listen on username line else random
-	    publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
-	    subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
-	    oneway        : true
+		number        : "Viewer" + Math.floor(Math.random()*100), // listen on username line else random
+		publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
+		subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
+		oneway        : true
 	});
 	var ctrl = window.ctrl = CONTROLLER(phone);
 	ctrl.ready(function(){
@@ -145,12 +192,12 @@ function watch(form){
 		addLog("Joining stream  " + num); 
 	});
 	ctrl.receive(function(session){
-	    session.connected(function(session){ 
-            video_out.appendChild(session.video); 
-            addLog(session.number + " has joined.");
-            stream_info.hidden=false;
-        });
-	    session.ended(function(session) { addLog(session.number + " has left."); });
+		session.connected(function(session){ 
+			video_out.appendChild(session.video); 
+			addLog(session.number + " has joined.");
+			stream_info.hidden=false;
+		});
+		session.ended(function(session) { addLog(session.number + " has left."); });
 	});
 	ctrl.streamPresence(function(m){
 		here_now.innerHTML=m.occupancy;
@@ -170,7 +217,7 @@ function addLog(log){
 function end(){
 	if (!window.phone) return;
 	ctrl.hangup();
-    video_out.innerHTML = "";
+	video_out.innerHTML = "";
 //	phone.pubnub.unsubscribe(); // unsubscribe all?
 }
 
